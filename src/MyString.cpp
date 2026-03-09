@@ -1,6 +1,6 @@
 #include "MyString.hpp"
 
-// Вспомогательный метод для управления памятью
+
 void MyString::copyFrom(const char* str) {
     if (str == nullptr) {
         m_data = new char[1];
@@ -11,31 +11,29 @@ void MyString::copyFrom(const char* str) {
     }
 }
 
-// Конструктор по умолчанию
+
 MyString::MyString() {
     copyFrom("");
 }
 
-// Конструктор со строкой C-style
 MyString::MyString(const char* str) {
     copyFrom(str);
 }
 
-// Конструктор копирования
+
 MyString::MyString(const MyString& other) {
     copyFrom(other.m_data);
 }
 
-// Оператор присваивания
+
 MyString& MyString::operator=(const MyString& other) {
     if (this != &other) {
-        delete[] m_data; // Освобождаем старый ресурс
-        copyFrom(other.m_data); // Берем новый
+        delete[] m_data;
+        copyFrom(other.m_data); 
     }
     return *this;
 }
 
-// Деструктор — освобождаем память
 MyString::~MyString() {
     delete[] m_data;
 }
@@ -52,15 +50,14 @@ void MyString::set(int i, char c) {
 }
 
 void MyString::setNewString(const char* str) {
-    delete[] m_data; // Старая память больше не нужна
-    copyFrom(str);   // Выделяем новую нужного размера
+    delete[] m_data; 
+    copyFrom(str);   
 }
 
 void MyString::print() const {
     std::cout << m_data << std::endl;
 }
 
-// Реализация чтения строки неопределенной длины
 void MyString::readLine() {
     delete[] m_data;
     
@@ -69,10 +66,8 @@ void MyString::readLine() {
     char* buffer = new char[capacity];
     char ch;
 
-    // Читаем посимвольно до переноса строки или конца файла
     while (std::cin.get(ch) && ch != '\n') {
         if (length + 1 >= capacity) {
-            // Расширяем буфер в 2 раза
             capacity *= 2;
             char* newBuffer = new char[capacity];
             memcpy(newBuffer, buffer, length);
@@ -81,9 +76,8 @@ void MyString::readLine() {
         }
         buffer[length++] = ch;
     }
-    buffer[length] = '\0'; // Завершающий ноль
+    buffer[length] = '\0';
 
-    // Чтобы не тратить лишнюю память, "подрежем" массив до реального размера
     m_data = new char[length + 1];
     strcpy(m_data, buffer);
     delete[] buffer;

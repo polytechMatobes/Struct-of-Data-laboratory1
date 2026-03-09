@@ -13,24 +13,21 @@ private:
     void clearMemory();
 
 public:
-    // Конструкторы
     Matrix(int n);
     Matrix(int m, int n, double fillValue = 0);
-    Matrix(const Matrix& other); // Конструктор копирования
+    Matrix(const Matrix& other);
 
-    // Деструктор
     ~Matrix();
 
-    // Методы доступа
     double get(int i, int j) const;
     void set(int i, int j, double value);
     int getHeight() const;
     int getWidth() const;
 
-    // Математические операции
     void negate();
     void addInPlace(const Matrix& other);
     Matrix multiply(const Matrix& other);
+    void printMatrix()const;
 };
 
 #endif

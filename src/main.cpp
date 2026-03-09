@@ -1,15 +1,32 @@
 #include <iostream>
 #include "MyString.hpp"
 #include "barrel.hpp"
-//#include "matrix.hpp"
+#include "matrix.hpp"
 #include "rect.hpp"
 
 
 int main() {
     {
-        Rect r1(0, 4, 5 ,8), r2(2, 5, 5, 1);
-        Rect r3 = boundingRect(r1, r2);
-        printRect(r3);
+        // Rect r1(0, 4, 5 ,8), r2(2, 5, 5, 1);
+        // Rect r3 = boundingRect(r1, r2);
+        // printRect(r3);
+
+        Matrix A(4);
+        Matrix B(3, 2, 1);
+        Matrix C(2, 2, 1.1);
+
+        B.set(0, 0, 3);
+        Matrix res = B.multiply(C);
+
+        res.printMatrix();
+        C.negate();
+        C.printMatrix();
+
+        Matrix D(3, 3, 1);
+        Matrix E(3, 3, 4);
+        D.addInPlace(E);
+        D.printMatrix();
+
         // Rect r;
         // std::cout << r.getLeft() << "; " << r.getRight() << '\n';
         // r.setAll(1, 2, 3, 4);
@@ -46,64 +63,58 @@ int main() {
     // Rect rect(1, 2, 3, 4); 
     // Rect rect2;
 }
-    {
-    Barrel alch(100.0, 96.0);
-    Barrel water(100.0, 0.0);
+//     {
+//     Barrel alch(100.0, 96.0);
+//     Barrel water(100.0, 0.0);
     
-    int iteration = 0;
-    while (alch.getConcentration() > 50.0) {
-        iteration++;
-        water.transfuseFrom(alch, 1.0);
-        alch.transfuseFrom(water, 1.0);
-        std::cout << "Итерация " << iteration 
-                  << ": Спирт в 1-й бочке = " << alch.getConcentration() << "%" << std::endl;
+//     int iteration = 0;
+//     while (alch.getConcentration() > 50.0) {
+//         iteration++;
+//         water.transfuseFrom(alch, 1.0);
+//         alch.transfuseFrom(water, 1.0);
+//         std::cout << "Итерация " << iteration 
+//                   << ": Спирт в 1-й бочке = " << alch.getConcentration() << "%" << std::endl;
 
-        if (iteration > 100000) break;
-    }
+//         if (iteration > 100000) break;
+//     }
 
-    std::cout << "Ответ: Концентрация стала меньше 50% на итерации номер " << iteration << std::endl;
-}
-    // 1. Создание объектов через разные конструкторы
-    MyString empty;              // По умолчанию: ""
-    MyString hello("Привет");    // Со строкой C-style
+//     std::cout << "Ответ: Концентрация стала меньше 50% на итерации номер " << iteration << std::endl;
+// }
+//     MyString empty;
+//     MyString hello("Привет");
 
-    std::cout << "Начальное состояние:" << std::endl;
-    std::cout << "Empty: "; empty.print();
-    std::cout << "Hello: "; hello.print();
+//     std::cout << "Начальное состояние:" << std::endl;
+//     std::cout << "Empty: "; empty.print();
+//     std::cout << "Hello: "; hello.print();
 
-    // 2. Использование методов get и set
-    std::cout << "\nРабота с символами:" << std::endl;
-    char first = hello.get(0);
-    std::cout << "Первый символ: " << first << std::endl;
+//     std::cout << "\nРабота с символами:" << std::endl;
+//     char first = hello.get(0);
+//     std::cout << "Первый символ: " << first << std::endl;
     
-    hello.set(0, 'p'); // Меняем 'П' на 'p'
-    std::cout << "После изменения: "; hello.print();
+//     hello.set(0, 'p');
+//     std::cout << "После изменения: "; hello.print();
 
-    // 3. Замена строки (управление ресурсом)
-    std::cout << "\nЗамена содержимого:" << std::endl;
-    hello.setNewString("Динамическая строка");
-    hello.print();
+//     std::cout << "\nЗамена содержимого:" << std::endl;
+//     hello.setNewString("Динамическая строка");
+//     hello.print();
 
-    // 4. Чтение из консоли (динамический размер)
-    std::cout << "\nВведите любую длинную строку: ";
-    MyString userString;
-    userString.readLine(); // Можно ввести хоть целое предложение
+//     std::cout << "\nВведите любую длинную строку: ";
+//     MyString userString;
+//     userString.readLine();
     
-    std::cout << "Вы ввели: ";
-    userString.print();
+//     std::cout << "Вы ввели: ";
+//     userString.print();
 
-    // 5. Демонстрация работы конструктора копирования
-    // (Гарантирует, что при копировании выделится новая память)
-    MyString copy = userString;
-    std::cout << "Копия введённой строки: ";
-    copy.print();
+//     MyString copy = userString;
+//     std::cout << "Копия введённой строки: ";
+//     copy.print();
 
-    {
-        MyString s1;
-        MyString s2 = s1;
-        MyString s3("This is my string");
-        MyString s4 = s3;
-    }
+//     {
+//         MyString s1;
+//         MyString s2 = s1;
+//         MyString s3("This is my string");
+//         MyString s4 = s3;
+//     }
 
-    return 0; // Все деструкторы вызовутся автоматически здесь
+    return 0;
 }

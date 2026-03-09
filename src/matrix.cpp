@@ -1,4 +1,5 @@
 #include "matrix.hpp"
+#include <iostream>
 
 void Matrix::allocateMemory() {
     m_data = new double*[m_rows];
@@ -93,4 +94,13 @@ Matrix Matrix::multiply(const Matrix& other) {
         }
     }
     return result;
+}
+
+void Matrix::printMatrix()const{
+    for (int i = 0; i < getHeight(); ++i) {
+        for (int j = 0; j < getWidth(); ++j) {
+            std::cout << get(i, j) << "\t";
+        }
+        std::cout << std::endl;
+    }
 }

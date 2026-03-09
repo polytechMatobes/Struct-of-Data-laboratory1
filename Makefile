@@ -11,14 +11,17 @@ debug: build/debug.out
 build/rect.o: src/rect.cpp src/rect.hpp
 	g++ -g -c -o build/rect.o src/rect.cpp
 
+build/matrix.o: src/matrix.cpp src/matrix.hpp
+	g++ -g -c -o build/matrix.o src/matrix.cpp
+
 build/MyString.o: src/MyString.cpp src/MyString.hpp
 	g++ -g -c -o build/MyString.o src/MyString.cpp
 
 build/barrel.o: src/barrel.cpp src/barrel.hpp
 	g++ -g -c -o build/barrel.o src/barrel.cpp
 
-build/debug.out: build/rect.o build/MyString.o build/barrel.o src/main.cpp
-	g++ -g -o build/debug.out src/main.cpp build/rect.o build/MyString.o build/barrel.o
+build/debug.out: build/rect.o build/MyString.o build/barrel.o src/main.cpp build/matrix.o
+	g++ -g -o build/debug.out src/main.cpp build/rect.o build/MyString.o build/barrel.o build/matrix.o
 
 valgrind: build/debug.out
 	valgrind --leak-check=full --show-leak-kinds=all ./build/debug.out
