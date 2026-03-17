@@ -10,7 +10,7 @@ int main() {
     assert(r.getSquare() == 200);
 
     r.setWidth(50);
-    assert(r.getWidth() == 50);
+    assert(r.getWidth() == 10);
     assert(r.getSquare() == 1000);
 
     r.setHeight(5);

@@ -11,21 +11,21 @@ int main() {
         // Rect r3 = boundingRect(r1, r2);
         // printRect(r3);
 
-        Matrix A(4);
-        Matrix B(3, 2, 1);
-        Matrix C(2, 2, 1.1);
+        // Matrix A(4);
+        // Matrix B(3, 2, 1);
+        // Matrix C(2, 2, 1.1);
 
-        B.set(0, 0, 3);
-        Matrix res = B.multiply(C);
+        // B.set(0, 0, 3);
+        // Matrix res = B.multiply(C);
 
-        res.printMatrix();
-        C.negate();
-        C.printMatrix();
+        // res.printMatrix();
+        // C.negate();
+        // C.printMatrix();
 
-        Matrix D(3, 3, 1);
-        Matrix E(3, 3, 4);
-        D.addInPlace(E);
-        D.printMatrix();
+        // Matrix D(3, 3, 1);
+        // Matrix E(3, 3, 4);
+        // D.addInPlace(E);
+        // D.printMatrix();
 
         // Rect r;
         // std::cout << r.getLeft() << "; " << r.getRight() << '\n';
@@ -80,41 +80,43 @@ int main() {
 
 //     std::cout << "Ответ: Концентрация стала меньше 50% на итерации номер " << iteration << std::endl;
 // }
-//     MyString empty;
-//     MyString hello("Привет");
+    MyString empty;
+    MyString hello("Привет");
 
-//     std::cout << "Начальное состояние:" << std::endl;
-//     std::cout << "Empty: "; empty.print();
-//     std::cout << "Hello: "; hello.print();
+    std::cout << "Начальное состояние:" << std::endl;
+    std::cout << "Empty: "; empty.print();
+    std::cout << "Hello: "; hello.print();
 
-//     std::cout << "\nРабота с символами:" << std::endl;
-//     char first = hello.get(0);
-//     std::cout << "Первый символ: " << first << std::endl;
+    std::cout << "\nРабота с символами:" << std::endl;
+    char first = hello.get(0);
+    std::cout << "Первый символ: " << first << std::endl;
     
-//     hello.set(0, 'p');
-//     std::cout << "После изменения: "; hello.print();
+    hello.set(0, 'p');
+    std::cout << "После изменения: "; hello.print();
 
-//     std::cout << "\nЗамена содержимого:" << std::endl;
-//     hello.setNewString("Динамическая строка");
-//     hello.print();
+    std::cout << "\nЗамена содержимого:" << std::endl;
+    hello.setNewString("Динамическая строка");
+    hello.print();
 
-//     std::cout << "\nВведите любую длинную строку: ";
-//     MyString userString;
-//     userString.readLine();
+    std::cout << "\nВведите любую длинную строку: ";
+    MyString userString;
+    userString.readLine();
     
-//     std::cout << "Вы ввели: ";
-//     userString.print();
+    std::cout << "Вы ввели: ";
+    userString.print();
 
-//     MyString copy = userString;
-//     std::cout << "Копия введённой строки: ";
-//     copy.print();
+    MyString copy = userString;
+    std::cout << "Копия введённой строки: ";
+    copy.print();
 
-//     {
-//         MyString s1;
-//         MyString s2 = s1;
-//         MyString s3("This is my string");
-//         MyString s4 = s3;
-//     }
-
+    {
+        MyString s1;
+        MyString s2 = s1;
+        MyString s3("This is my string");
+        MyString s4 = s3;
+        s2 = s3;
+    }
+    int* a = new int;
+    
     return 0;
 }

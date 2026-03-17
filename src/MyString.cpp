@@ -31,6 +31,8 @@ MyString& MyString::operator=(const MyString& other) {
         delete[] m_data;
         copyFrom(other.m_data); 
     }
+    std::cout << "Оператор = вызван" << std::endl;
+
     return *this;
 }
 
