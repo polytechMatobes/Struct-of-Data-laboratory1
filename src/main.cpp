@@ -80,43 +80,61 @@ int main() {
 
 //     std::cout << "Ответ: Концентрация стала меньше 50% на итерации номер " << iteration << std::endl;
 // }
-    MyString empty;
-    MyString hello("Привет");
+    // MyString empty;
+    // MyString hello("Привет");
 
-    std::cout << "Начальное состояние:" << std::endl;
-    std::cout << "Empty: "; empty.print();
-    std::cout << "Hello: "; hello.print();
+    // std::cout << "Начальное состояние:" << std::endl;
+    // std::cout << "Empty: "; empty.print();
+    // std::cout << "Hello: "; hello.print();
 
-    std::cout << "\nРабота с символами:" << std::endl;
-    char first = hello.get(0);
-    std::cout << "Первый символ: " << first << std::endl;
+    // std::cout << "\nРабота с символами:" << std::endl;
+    // char first = hello.get(0);
+    // std::cout << "Первый символ: " << first << std::endl;
     
-    hello.set(0, 'p');
-    std::cout << "После изменения: "; hello.print();
+    // hello.set(0, 'p');
+    // std::cout << "После изменения: "; hello.print();
 
-    std::cout << "\nЗамена содержимого:" << std::endl;
-    hello.setNewString("Динамическая строка");
-    hello.print();
+    // std::cout << "\nЗамена содержимого:" << std::endl;
+    // hello.setNewString("Динамическая строка");
+    // hello.print();
 
-    std::cout << "\nВведите любую длинную строку: ";
-    MyString userString;
-    userString.readLine();
+    // std::cout << "\nВведите любую длинную строку: ";
+    // MyString userString;
+    // userString.readLine();
     
-    std::cout << "Вы ввели: ";
-    userString.print();
+    // std::cout << "Вы ввели: ";
+    // userString.print();
 
-    MyString copy = userString;
-    std::cout << "Копия введённой строки: ";
-    copy.print();
+    // MyString copy = userString;
+    // std::cout << "Копия введённой строки: ";
+    // copy.print();
 
-    {
-        MyString s1;
-        MyString s2 = s1;
-        MyString s3("This is my string");
-        MyString s4 = s3;
-        s2 = s3;
+    // {
+    //     MyString s1;
+    //     MyString s2 = s1;
+    //     MyString s3("This is my string");
+    //     MyString s4 = s3;
+    //     s2 = s3;
+    // }
+    
+    MyString ar[5] = {
+        MyString("Первая строка"),
+        MyString("Вторая строка"),
+        MyString("Третья строка")
+    };
+    
+    for (int i = 0; i < 5; i++){
+        ar[i].print();
     }
-    int* a = new int;
-    
+
+    MyString* arPtr[3] = {
+        new MyString("Первая строка"),
+        new MyString("Вторая строка"),
+        new MyString("Третья строка")
+    };
+
+    for (int i = 0; i < 3; i++){
+        arPtr[i]->print();
+    }
     return 0;
 }
