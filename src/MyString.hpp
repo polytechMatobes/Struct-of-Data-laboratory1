@@ -30,4 +30,11 @@ public:
     void readLine();
 };
 
+class ChildString : public MyString{
+int data;
+
+public:
+    ChildString(){data = 0; MyString();}
+};
+
 #endif

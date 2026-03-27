@@ -127,14 +127,20 @@ int main() {
         ar[i].print();
     }
 
-    MyString* arPtr[3] = {
+    MyString* arPtr[4] = {
         new MyString("Первая строка"),
         new MyString("Вторая строка"),
-        new MyString("Третья строка")
+        new MyString("Третья строка"),
+        new ChildString()
     };
 
     for (int i = 0; i < 3; i++){
         arPtr[i]->print();
     }
+
+    for (int i = 0; i < 3; i++) {
+    delete arPtr[i];
+}
+
     return 0;
 }
